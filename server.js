@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://chatbot-x8k5.onrender.com"],
+    origin: ["http://localhost:3000"],
   })
 );
 app.use(express.json());
@@ -25,7 +25,7 @@ mongoose
       const io = require("socket.io")(server, {
         pingTimeout: 60000,
         cors: {
-          origin: "https://chatbot-x8k5.onrender.com",
+          origin: "http://localhost:3000",
         },
       });
       io.on("connection", (socket) => {
