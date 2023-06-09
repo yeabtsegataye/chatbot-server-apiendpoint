@@ -5,17 +5,15 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const userRoutes = require("./router/userRouter");
 const chatRoutes = require("./router/chatRoutes");
 const messageRoutes = require("./router/messageRoutes");
+const corsOptions = require("./config/corsOptions");
+
 const path = require("path");
 
 require("dotenv").config();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["https://chatbot-x8k5.onrender.com"],
-  })
-);
+app.use(cors(corsOptions));
 app.use(express.json());
 mongoose
   .connect(process.env.MONGOODBURL)
